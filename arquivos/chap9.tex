@@ -1,0 +1,17 @@
+\chapter{Detectando Páginas Pares e Ímpares}
+Em documentos de dois lados, distinguimos páginas esquerda e direita. As páginas esquerdas sempre têm um número de página par, e as páginas direitas sempre têm um número de página ímpar. Identificar páginas direitas e esquerdas é equivalente a identificar páginas pares ou ímpares, e por isso normalmente nos referimos a elas como páginas pares e ímpares neste guia.
+
+Em documentos de um lado, a distinção entre páginas esquerda e direita não existe. No entanto, ainda há páginas com números de página pares e ímpares.
+\begin{verbatim}
+    \Ifthispageodd{true part}{false part}
+\end{verbatim}
+
+Se você quiser determinar se o texto aparece em uma página par ou ímpar, o \KOMAScript\ fornece o comando \char`\\\texttt{If\-this\-page\-odd}. O argumento da parte \texttt{true} é executado somente se você estiver atualmente em uma página ímpar. Caso contrário, o argumento da parte \texttt{false} é executado.
+
+\textbf{Exemplo}: Suponha que você simplesmente queira mostrar se um texto será colocado em uma página par ou ímpar. Você pode conseguir isso usando:
+
+Esta página tem um número de página \char`\\\texttt{If\-this\-page\-odd\{odd\}\{even\}}.
+
+Como o comando \verb|\Ifthispageodd| usa um mecanismo muito semelhante a um rótulo e uma referência a ele, pelo menos duas execuções do \LaTeX\ são necessárias após cada alteração no texto. Só então a decisão estará correta. Na primeira execução, uma heurística é usada para fazer a escolha inicial.
+
+Na seção 21.1, página 475, usuários avançados podem encontrar mais informações sobre os problemas de detectar páginas esquerda e direita, ou números de páginas pares e ímpares.

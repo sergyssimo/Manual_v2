@@ -1,0 +1,42 @@
+\chapter{Versos}
+\begin{verbatim}
+        \begin{verse}...\end{verse}    
+\end{verbatim}
+
+O ambiente de verso normalmente não é percebido como um ambiente de lista porque você não trabalha com comandos \verb|\item|. Em vez disso, quebras de linha fixas são usadas dentro do ambiente \texttt{flushleft}. Internamente, no entanto, tanto as classes padrão quanto o \KOMAScript\ implementam ele como um ambiente de lista.
+
+Em geral, o ambiente de verso é usado para poesia. As linhas são recuadas tanto à esquerda quanto à direita. Linhas individuais de verso são finalizadas por uma quebra de linha fixa: \verb|\\|. Os versos são definidos como parágrafos, separados por uma linha vazia. Frequentemente, também \verb|\medskip| ou \verb|\bigskip| são usados. Para evitar uma quebra de página no final de uma linha de verso, você pode, como de costume, inserir \verb|\\*| em vez de \verb|\\|.
+
+\textbf{Exemplo}: Como exemplo, o soneto de Emma Lazarus do pedestal de Liberty Enlightening the World:
+\begin{verbatim}
+\begin{verse}
+Not like the brazen giant of Greek fame\\*
+With conquering limbs astride from land to land\\*
+Here at our sea-washed, sunset gates shall stand\\*
+A mighty woman with a torch, whose flame\\*
+Is the imprisoned lightning, and her name\\*
+Mother of Exiles. From her beacon-hand\\*
+Glows world-wide welcome; her mild eyes command\\*
+The air-bridged harbor that twin cities frame.\\*
+‘‘Keep, ancient lands, your storied pomp!’’ cries she\\*
+With silent lips. ‘‘Give me your tired, your poor,\\*
+Your huddled masses yearning to breathe free,\\*
+The wretched refuse of your teeming shore.\\*
+Send these, the homeless, tempest-tossed to me:\\*
+I lift my lamp beside the golden door.’’
+\end{verse} 
+\end{verbatim}
+
+No entanto, se você tiver linhas muito longas de verso onde uma quebra de linha ocorre dentro de uma linha de verso:
+\newpage
+
+\begin{verbatim}
+\begin{verse}
+Both the philosopher and the house-owner
+always have something to repair.\\*
+\bigskip
+Don’t trust a man, my son, who tells you
+that he has never lied.
+\end{verse}
+\end{verbatim}
+

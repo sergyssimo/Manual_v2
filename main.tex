@@ -1,0 +1,65 @@
+\documentclass[toc=chapterentrywithdots]{scrbook}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+%\usepackage{scrlayer-scrpage}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{verbatimbox}
+% \automark[chapter]{chapter}
+% \clearpairofpagestyles
+% \ohead{\pagemark}
+% \ihead{\headmark}
+\clubpenalty=10000 
+\widowpenalty=10000
+\displaywidowpenalty=10000
+%\chead{\footnotesize\headmark}
+% \cfoot{\footnotesize\pagemark}
+\setlength{\parskip}{3.5pt}
+%
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+\setlength{\parindent}{20pt}
+
+\NewDocumentCommand{\cmd}{m}{\texttt{\symbol{`\\}#1}} %permite colocar comandos dentro de comandos ou no texto.
+
+
+\begin{document}
+\frontmatter
+\title{Breves Anotações sobre \KOMAScript}
+\author{Baena}
+\date{\today}
+\maketitle
+\tableofcontents
+\frontmatter
+\include{introducao}
+\mainmatter
+\include{arquivos/chap1}
+\include{arquivos/chap2}
+\include{arquivos/chap3}
+\include{arquivos/chap4}
+\include{arquivos/chap5}
+\include{arquivos/chap6}
+\include{arquivos/chap7}
+\include{arquivos/chap8}
+\include{arquivos/chap9}
+\include{arquivos/chap10}
+\include{arquivos/chap11}
+\include{arquivos/chap12}
+\include{arquivos/chap13}
+\include{arquivos/chap14}
+\include{arquivos/chap15}
+\include{arquivos/chap16}
+\include{arquivos/chap17}
+\include{arquivos/chap18}
+\include{arquivos/chap19}
+\include{arquivos/chap20}
+\include{arquivos/chap21}
+\include{arquivos/chap22}
+\include{arquivos/dicta}
+\include{arquivos/weekday}
+
+
+\end{document}

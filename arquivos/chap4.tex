@@ -1,0 +1,40 @@
+\chapter{Ajustando a Área de Tipo e o Layout da Página}
+O pacote \texttt{typearea} oferece duas interfaces de usuário diferentes para influenciar a construção da área de tipo. O método mais importante é especificar opções ao carregar o pacote. Para informações sobre como configurar opções com o \KOMAScript\ consulte a seção 2.4. Nesta seção, as classes usadas nos exemplos não são classes \KOMAScript\ existentes, mas hipotéticas. Este guia assume que, idealmente, uma classe apropriada esteja disponível para cada tarefa.
+
+\minisec{BCOR = correction}
+Use a opção \texttt{BCOR=correction} para especificar o valor absoluto da correção de encadernação, ou seja, a largura da área perdida do papel durante o processo de encadernação. Este valor é então automaticamente levado em consideração ao construir o layout da página e é adicionado de volta à margem interna (ou esquerda) durante a saída. No valor da correção, você pode especificar qualquer unidade de medida entendida pelo \TeX.
+
+Ao usar uma classe \KOMAScript\ você não precisa carregar o pacote \texttt{typearea} explicitamente:
+\begin{verbatim}
+            \documentclass[BCOR=8.25mm]{scrreprt}
+\end{verbatim}
+
+Você pode omitir a opção a4paper com \texttt{scrreprt}, já que este é o padrão para todas as classes \KOMAScript.
+
+Se você quiser definir a opção para um novo valor mais tarde, você pode, por exemplo, usar o seguinte:
+\begin{verbatim}
+            \documentclass{scrreprt}
+            \KOMAoptions{BCOR=8.25mm}
+\end{verbatim}
+
+Os padrões são inicializados quando a classe \texttt{scrreprt} é carregada. Alterar uma configuração com os comandos \KOMAScript\ ou \verb|\KOMAoption| calculará automaticamente uma nova área de tipo com novas margens.
+Note que você deve passar esta opção como uma opção de classe ao carregar uma das classes \KOMAScript\ como no exemplo acima, ou via \verb|\KOMAoptions| ou \verb|\KOMAoption| após carregar a classe. Quando você usa uma classe \KOMAScript\ você não deve carregar o pacote \texttt{typearea} explicitamente com \verb|\usepackage|, nem deve especificá-lo como um argumento opcional ao carregar o pacote se você estiver usando outra classe. Se a opção for alterada com \verb|\KOMAoptions| ou \verb|\KOMAoption| após carregar o pacote, a área de tipo e as margens são automaticamente recalculadas.
+
+\minisec{DIV=factor}
+A opção \texttt{DIV=factor} especifica o número de faixas nas quais a página é dividida horizontalmente e verticalmente durante a construção da área de texto. O método de construção exato é encontrado na seção 2.2. É importante perceber que \textbf{quanto maior o fator, maior o bloco de texto e menores as margens. Qualquer valor inteiro maior que 4 é válido para fator.}
+
+Observe, no entanto, que valores grandes podem causar violações nas restrições nas margens da área de texto, dependendo de como você define outras opções. Em casos extremos, o cabeçalho pode cair fora da página. Ao usar a opção DIV=factor, você é responsável por cumprir com as restrições de margem e por escolher um comprimento de linha tipograficamente agradável.
+
+Na tabela 2.1, você encontrará os tamanhos das áreas de texto para vários fatores DIV para a página A4 sem correção de encadernação. Nesse caso, as outras restrições que dependem do tamanho da fonte não são levadas em consideração.
+
+\textbf{Se for absolutamente necessário definir o texto com um espaçamento de linha de 1,5, não redefina} \verb|\baselinestretch| \textbf{em nenhuma circunstância}. Embora esse procedimento seja recomendado com muita frequência, ele está obsoleto desde a introdução do \LaTeXe\ em 1994. No pior caso, use o comando \verb|\linespread|. Eu recomendo o pacote \texttt{setspace}, que não é parte do \KOMAScript. Você também deve deixar \texttt{typearea} recalcular uma nova área de tipo após alterar o espaçamento de linha. No entanto, você deve voltar ao espaçamento de linha normal para o título, e de preferência para o índice e várias listas — assim como a bibliografia e o índice. Para detalhes, veja a explicação de \texttt{DIV=current}.
+
+Não raramente eu me pergunto por que eu me detenho em cálculos de \texttt{typearea} para um capítulo inteiro, quando seria muito mais fácil apenas fornecer um pacote com o qual você pode ajustar as margens como em um processador de texto. Muitas vezes é dito que tal pacote seria uma solução melhor em qualquer caso, já que todos sabem como escolher margens apropriadas, e que as margens calculadas pelo \KOMAScript\ não são tão boas assim. Eu gostaria de citar Hans Peter Willberg e Friedrich Forssmann, dois dos mais respeitados tipógrafos contemporâneos. (Você pode encontrar o original em alemão no guia alemão.):
+
+\begin{quote}
+ A prática de fazer as coisas por si mesmo é muito difundida, mas os resultados são frequentemente duvidosos porque tipógrafos amadores não veem o que está errado e não conseguem saber o que é importante. É assim que você se acostuma com tipografia incorreta e ruim. [\ldots] Agora, a objeção poderia ser feita de que tipografia é uma questão de gosto. Quando se trata de decoração, talvez se possa aceitar esse argumento, mas como tipografia é principalmente sobre informação, erros não só podem irritar, mas podem até mesmo causar danos.   
+\end{quote}
+
+
+
+
