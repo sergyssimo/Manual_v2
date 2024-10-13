@@ -2,13 +2,12 @@
 A estrutura se refere à divisão de um documento em partes, capítulos, seções e níveis adicionais de estrutura.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.80\linewidth]{imagens/imagem17.png}
-    %\caption{Enter Caption}
+    \includegraphics[width=0.9\linewidth]{imagens/imagem17.png}
     \label{fig:3_12}
 \end{figure}
 
 \minisec{open=method}
-As classes \KOMAScript\ \texttt{scrbook} e \texttt{scrreprt} oferecem a você a opção de onde começar um novo capítulo com impressão frente e verso. Por padrão, \texttt{scrreprt} inicia um novo capítulo na próxima página. Isso é equivalente ao método any. No entanto, \texttt{scrbook} inicia novos capítulos na próxima página à direita. Isso é equivalente ao método right e geralmente é usado em livros. Mas às vezes os capítulos devem começar na página esquerda de uma página dupla. Você pode fazer isso com o método left. Você pode encontrar um resumo dos valores disponíveis na tabela 3.12. A tabela também descreve os efeitos de \char`\\\texttt{clear\-dou\-ble\-pa\-ge}, \char`\\\texttt{clear\-dou\-ble\-pa\-ge\-u\-sing\-sty\-le}, \char`\\\texttt{clear\-dou\-ble\-stan\-dard\-pa\-ge}, \char`\\\texttt{clear\-dou\-ble\-plain\-pa\-ge} e \char`\\\texttt{clear\-dou\-ble\-empty\-pa\-ge} (consulte a seção 3.13, página 87).
+As classes \KOMAScript\ \texttt{scrbook} e \texttt{scrreprt} oferecem a você a opção de onde começar um novo capítulo com impressão frente e verso. Por padrão, \texttt{scrreprt} inicia um novo capítulo na próxima página. Isso é equivalente ao método \texttt{any}. No entanto, \texttt{scrbook} inicia novos capítulos na próxima página à direita. Isso é equivalente ao método \texttt{right} e geralmente é usado em livros. Mas às vezes os capítulos devem começar na página esquerda de uma página dupla. Você pode fazer isso com o método \texttt{left}. Você pode encontrar um resumo dos valores disponíveis na tabela 3.12. A tabela também descreve os efeitos de \char`\\\texttt{clear\-dou\-ble\-pa\-ge}, \char`\\\texttt{clear\-dou\-ble\-pa\-ge\-u\-sing\-sty\-le}, \char`\\\texttt{clear\-dou\-ble\-stan\-dard\-pa\-ge}, \char`\\\texttt{clear\-dou\-ble\-plain\-pa\-ge} e \char`\\\texttt{clear\-dou\-ble\-empty\-pa\-ge} (consulte a seção 3.13, página 87).
 
 Como o \LaTeX\ não diferencia entre páginas esquerdas e direitas na impressão de um lado, a opção não tem efeito nesse caso.
 
@@ -16,7 +15,7 @@ Na classe \texttt{scrartcl}, a seção é o primeiro elemento estrutural abaixo 
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.65\linewidth]{imagens/imagem18.png}
+    \includegraphics[width=0.5\linewidth]{imagens/imagem18.png}
     \label{fig:img18}
 \end{figure}
 
@@ -34,7 +33,7 @@ A interpretação estendida do argumento opcional verifica se há um sinal de ig
 
 são suportadas com este formato. Para usar vírgulas ou sinais de igual dentro dos valores dessas opções, você deve colocá-los entre chaves.
 
-Observe que este mecanismo só funciona enquanto o \KOMAScript\ controlar os comandos de seccionamento. Se você usar um pacote que redefine os comandos de seccionamento do \KOMAScript\ ou do kernel interno do \LaTeX, o \KOMAScript\ não poderá mais fornecer este mecanismo estendido. Isso também se aplica a uma extensão do \KOMAScript\ que está sempre ativa: comandos de seccionamento sem texto de título não criam entradas no índice. Se você realmente quiser uma entrada com texto de título vazio, você pode usar uma entrada invisível como \mbox{}.
+Observe que este mecanismo só funciona enquanto o \KOMAScript\ controlar os comandos de seccionamento. Se você usar um pacote que redefine os comandos de seccionamento do \KOMAScript\ ou do kernel interno do \LaTeX, o \KOMAScript\ não poderá mais fornecer este mecanismo estendido. Isso também se aplica a uma extensão do \KOMAScript\ que está sempre ativa: comandos de seccionamento sem texto de título não criam entradas no índice. Se você realmente quiser uma entrada com texto de título vazio, você pode usar uma entrada invisível como \verb|\mbox{}|.
 
 \textbf{Exemplo}: Suponha que você tenha um documento com títulos de capítulo muito longos. Esses títulos devem aparecer no índice, mas você quer limitar o título corrente a títulos curtos de uma única linha. Você pode fazer isso com o argumento opcional de \char`\\\texttt{chap\-ter}.
 
@@ -52,15 +51,15 @@ Um pouco mais tarde, você percebe que as quebras de linha para esse longo títu
     \label{fig:img19}
 \end{figure}
 
-você cria entradas separadas para o índice, título corrente e o próprio título do capítulo. Os argumentos das opções head e tocentry foram colocados entre chaves para que seus conteúdos possam ser arbitrários.
+você cria entradas separadas para o índice, título corrente e o próprio título do capítulo. Os argumentos das opções \texttt{head} e \texttt{tocentry} foram colocados entre chaves para que seus conteúdos possam ser arbitrários.
 
 É possível usar diferentes tipos de fonte para diferentes níveis de seccionamento no KOMA-Script. Não especialistas em tipografia devem evitar fazer isso por excelentes razões tipográficas.
 
-Uma regra da tipografia afirma que você deve misturar o mínimo de fontes possível. Usar \textit{sans serif} para títulos já parece violar essa regra. No entanto, você deve perceber que letras grandes, em negrito e \textit{serif} são muito pesadas para títulos. A rigor, você deve usar uma fonte normal em vez de uma fonte em negrito ou seminegrito. No entanto, em níveis mais profundos do seccionamento, uma fonte normal pode então parecer muito clara. Por outro lado, fontes \textit{sans serif} têm uma aparência muito agradável em títulos, e quase exclusivamente em títulos. Há, portanto, uma boa razão pela qual \textit{sans serif} é o padrão no \KOMAScript.
+Uma regra da tipografia afirma que você deve misturar o mínimo de fontes possível. Usar \textit{sans serif} para títulos já parece violar essa regra. No entanto, você deve perceber que letras grandes, em negrito e \textit{serif} são muito pesadas para títulos. A rigor, você deve usar uma fonte normal em vez de uma fonte em negrito ou seminegrito. No entanto, em níveis mais profundos do seccionamento, uma fonte normal pode então parecer muito clara. Por outro lado, fontes \textit{sans serif} têm uma aparência muito agradável em títulos, e quase exclusivamente em títulos. \textbf{Há, portanto, uma boa razão pela qual} \textit{\textbf{sans serif}} \textbf{é o padrão no} \KOMAScript.
 
-\includegraphics[width=0.40\linewidth]{imagens/imagem20.png}
+\includegraphics[width=0.35\linewidth]{imagens/imagem20.png}
 
-As variantes com estrela de todos os comandos de seccionamento produzem títulos não numerados que não aparecem no índice ou no cabeçalho contínuo. A ausência de um cabeçalho contínuo geralmente tem um efeito colateral indesejado. Se, por exemplo, um conjunto de capítulos usando \verb|\chapter*| abrange várias páginas, então o cabeçalho contínuo do capítulo anterior reaparece repentinamente. O \KOMAScript\ oferece uma solução para esse problema, descrita abaixo. \verb|\chapter*| só existe nas classes book e report, ou seja, book, scrbook, report e scrreport, não nas classes article e scrartcl.
+As variantes com estrela de todos os comandos de seccionamento produzem títulos não numerados que não aparecem no índice ou no cabeçalho contínuo. A ausência de um cabeçalho contínuo geralmente tem um efeito colateral indesejado. Se, por exemplo, um conjunto de capítulos usando \verb|\chapter*| abrange várias páginas, então o cabeçalho contínuo do capítulo anterior reaparece repentinamente. O \KOMAScript\ oferece uma solução para esse problema, descrita abaixo. \verb|\chapter*| só existe nas classes \texttt{book} e \texttt{report}, ou seja, \texttt{book}, \texttt{scrbook}, \texttt{report} e scrreport, não nas classes \texttt{article} e \texttt{scrartcl}.
 
 Observe que \verb|\part| e \verb|\chapter| alteram o estilo de página para uma página. Enquanto as classes padrão usam o estilo de página simples, o \KOMAScript\ aplica o estilo definido nas macros \char`\\\texttt{part\-pa\-ge\-sty\-le} e \char`\\\texttt{chap\-ter\-pa\-ge\-sty\-le} (veja a seção 3.12, página 83).
 
@@ -81,19 +80,17 @@ Você pode alterar a fonte do comando \verb|\minisec| usando o elemento \texttt{
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{imagens/imagem21.png}
+    \includegraphics[width=0.9\linewidth]{imagens/imagem21.png}
     %\caption{Enter Caption}
     \label{fig:img21}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.4\linewidth]{imagens/imagem22.png}
+    \includegraphics[width=0.3\linewidth]{imagens/imagem22.png}
 \end{figure}
 
-\newpage
-
-Nas classes padrão, os títulos são definidos como texto justificado. Isso significa que palavras hifenizadas podem ocorrer e títulos de várias linhas são esticados até a largura do texto. Essa abordagem é bastante incomum em tipografia. O \KOMAScript\ portanto, define os títulos alinhados à esquerda com recuo deslocado usando \char`\\\texttt{ragged\-sec\-tion} com o padrão:
+Nas classes padrão, os títulos são definidos como texto justificado. Isso significa que palavras hifenizadas podem ocorrer e títulos de várias linhas são esticados até a largura do texto. Essa abordagem é bastante incomum em tipografia. O \KOMAScript, portanto, define os títulos alinhados à esquerda com recuo deslocado usando \char`\\\texttt{ragged\-sec\-tion} com o padrão:
 \begin{verbatim}
     \newcommand*{\raggedsection}{\raggedright}
 \end{verbatim}
@@ -133,6 +130,6 @@ no preâmbulo do seu documento. Neste caso, e diferente do exemplo acima, nós n
     \includegraphics[width=0.8\linewidth]{imagens/imagem23.png}
 \end{figure}
 
-O \KOMAScript\ adiciona outra camada lógica acima do nome \char`\\\texttt{the\-sec\-tio\-ning} para formatar os números de seccionamento. Os contadores para cada título não são meramente emitidos. Eles são formatados usando os comandos \char`\\\texttt{part\-for\-mat}, \char`\\\texttt{chap\-ter\-for\-mat}, até \char`\\\texttt{sub\-pa\-ra\-graph\-for\-mat}. Claro, o comando \char`\\\texttt{chap\-ter\-for\-mat}, como \verb|\thechapter|, não existe na classe scrartcl, mas apenas nas classes scrbook e scrreprt.
+O \KOMAScript\ adiciona outra camada lógica acima do nome \char`\\\texttt{the\-sec\-tio\-ning} para formatar os números de seccionamento. Os contadores para cada título não são meramente emitidos. Eles são formatados usando os comandos \char`\\\texttt{part\-for\-mat}, \char`\\\texttt{chap\-ter\-for\-mat}, até \char`\\\texttt{sub\-pa\-ra\-graph\-for\-mat}. Claro, o comando \char`\\\texttt{chap\-ter\-for\-mat}, como \verb|\thechapter|, não existe na classe \texttt{scrartcl}, mas apenas nas classes \texttt{scrbook} e \texttt{scrreprt}.
 
 Como já explicado para a opção numbers no início desta seção (veja a página 99), o tratamento de pontos do \KOMAScript\ em números de seção implementa as regras fornecidas em [DUD96], que são padrão na tipografia de língua alemã, no comando \verb|\autodot|. Em todos os níveis exceto para \verb|\part|, um ponto é seguido por um \verb|\enskip| adicional. Isso corresponde a um salto horizontal de 0.5em.

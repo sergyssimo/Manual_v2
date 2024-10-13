@@ -1,14 +1,18 @@
-\chapter{Versos}
-\begin{verbatim}
-        \begin{verse}...\end{verse}    
-\end{verbatim}
+\chapter{Versos e Citações}
+\section{Versos}
+\begin{Large}
+\begin{verbnobox}[\hspace{1in}]
+     \begin{verse}...\end{verse}  
+\end{verbnobox}
+\end{Large}
+
 
 O ambiente de verso normalmente não é percebido como um ambiente de lista porque você não trabalha com comandos \verb|\item|. Em vez disso, quebras de linha fixas são usadas dentro do ambiente \texttt{flushleft}. Internamente, no entanto, tanto as classes padrão quanto o \KOMAScript\ implementam ele como um ambiente de lista.
 
 Em geral, o ambiente de verso é usado para poesia. As linhas são recuadas tanto à esquerda quanto à direita. Linhas individuais de verso são finalizadas por uma quebra de linha fixa: \verb|\\|. Os versos são definidos como parágrafos, separados por uma linha vazia. Frequentemente, também \verb|\medskip| ou \verb|\bigskip| são usados. Para evitar uma quebra de página no final de uma linha de verso, você pode, como de costume, inserir \verb|\\*| em vez de \verb|\\|.
 
 \textbf{Exemplo}: Como exemplo, o soneto de Emma Lazarus do pedestal de Liberty Enlightening the World:
-\begin{verbatim}
+\begin{verbnobox}[\hspace{1in}]
 \begin{verse}
 Not like the brazen giant of Greek fame\\*
 With conquering limbs astride from land to land\\*
@@ -25,10 +29,9 @@ The wretched refuse of your teeming shore.\\*
 Send these, the homeless, tempest-tossed to me:\\*
 I lift my lamp beside the golden door.’’
 \end{verse} 
-\end{verbatim}
+\end{verbnobox}
 
 No entanto, se você tiver linhas muito longas de verso onde uma quebra de linha ocorre dentro de uma linha de verso:
-\newpage
 
 \begin{verbatim}
 \begin{verse}
@@ -40,3 +43,10 @@ that he has never lied.
 \end{verse}
 \end{verbatim}
 
+\section{Ambiente Quote/Quotation}
+
+\begin{verbnobox}[\hspace{1in}]
+    \begin{quotation}...\end{quotation} 
+\end{verbnobox}
+
+Esses dois ambientes também são definidos internamente como ambientes de lista e podem ser encontrados em ambas as classes \textbf{standard} e \KOMAScript. Ambos os ambientes usam texto justificado que é recuado tanto no lado esquerdo quanto no direito. Frequentemente, eles são usados para separar citações mais longas do texto principal. A diferença entre os dois está na maneira como os parágrafos são compostos. Enquanto os parágrafos \textit{quote} são distinguidos pelo espaço vertical, nos parágrafos \textit{quotation}, a primeira linha é recuada. Isso também se aplica à primeira linha de um \texttt{quo\-te\-en\-vi\-ron\-ment}, a menos que seja precedido por \verb|\noindent|.

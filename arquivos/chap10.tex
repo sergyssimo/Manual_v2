@@ -1,5 +1,5 @@
 \chapter{Cabeçalhos e Rodapés}
-\minisec{Usando Estilos de Página Predefinidos}
+\section{Usando Estilos de Página Predefinidos}
 
 Uma das características gerais de um documento é o estilo de página. No \LaTeX, isso consiste principalmente no conteúdo dos cabeçalhos e rodapés.
 \begin{verbatim}
@@ -7,11 +7,11 @@ Uma das características gerais de um documento é o estilo de página. No \LaTe
         footsepline=simple switch
 \end{verbatim}
 
-Você pode usar essas opções para especificar se uma regra horizontal aparece abaixo do cabeçalho ou acima do rodapé. Você pode usar qualquer um dos valores para interruptores simples mostrados na tabela 2.5, página 41. Definir a opção \texttt{headsepline} como \texttt{true} ou invocá-la sem valor resulta em uma linha abaixo do cabeçalho. Da mesma forma, ativar a opção \texttt{footsepline} resulta em uma regra acima do rodapé. Desativar qualquer uma das opções desliga a respectiva regra.
+Você pode usar essas opções para especificar se uma regra horizontal aparece abaixo do cabeçalho ou acima do rodapé. Você pode usar qualquer um dos valores para interruptores simples mostrados na tabela \ref{fig:8_1}, p.~\pageref{fig:8_1}. Definir a opção \texttt{headsepline} como \texttt{true} ou invocá-la sem valor resulta em uma linha abaixo do cabeçalho. Da mesma forma, ativar a opção \texttt{footsepline} resulta em uma regra acima do rodapé. Desativar qualquer uma das opções desliga a respectiva regra.
 
 A opção \texttt{headsepline} naturalmente não tem efeito com os estilos de página vazio e simples, que são descritos abaixo, porque esses estilos dispensam explicitamente um cabeçalho. Tipograficamente, tal linha tem o efeito de fazer o cabeçalho parecer mais próximo do texto. Isso não significa que o cabeçalho precisa ser movido para mais longe do corpo do texto. Em vez disso, o cabeçalho deve ser considerado como pertencente ao corpo do texto para fins de cálculo da área do tipo. O \KOMAScript\ leva isso em consideração ao passar a \texttt{head\-sep\-li\-ne\-op\-tion} para o pacote \textbf{typearea}, que então executa automaticamente a opção de pacote \texttt{headinclude} com o mesmo valor. O mesmo se aplica à linha de separação do rodapé. Ao contrário do \texttt{headsepline}, a opção \texttt{footsepline} também afeta o estilo de página simples porque \textbf{plain} imprime um número de página no rodapé.
 
-O pacote scrlayer-scrpage (veja capítulo 5) oferece mais possibilidades para ajustar linhas em cabeçalhos e rodapés.
+O pacote \texttt{scrlayer-scrpage} (veja o capítulo \ref{chap20}) oferece mais possibilidades para ajustar linhas em cabeçalhos e rodapés.
 \begin{verbatim}
         \pagestyle{page style}
         \thispagestyle{local page style}
@@ -20,7 +20,7 @@ O pacote scrlayer-scrpage (veja capítulo 5) oferece mais possibilidades para aj
 \minisec{Geralmente, há quatro estilos de página diferentes:}
 \paragraph{empty} é o estilo de página com cabeçalhos e rodapés completamente vazios. No \KOMAScript\ isso é idêntico às classes padrão.
 
-\paragraph{headings} (títulos) é o estilo de página com títulos correntes no cabeçalho. Neste estilo, os títulos são inseridos automaticamente no cabeçalho. Com as classes scrbook e scrreprt, os títulos de capítulos e seções são repetidos no cabeçalho para impressão frente e verso — no lado externo com \KOMAScript no lado interno com as classes padrão. \KOMAScript\ coloca o número da página no lado externo do rodapé; as classes padrão o colocam no lado interno do cabeçalho. Na impressão de um lado, \KOMAScript\ usa apenas os títulos dos capítulos, que são centralizados no cabeçalho, e coloca os números das páginas centralizados no rodapé. scrartcl se comporta de forma semelhante, mas começa um nível mais abaixo na hierarquia de seções, com seções e subseções, porque o nível do capítulo não existe neste caso.
+\paragraph{headings} (títulos) é o estilo de página com títulos correntes no cabeçalho. Neste estilo, os títulos são inseridos automaticamente no cabeçalho. Com as classes \texttt{scrbook} e \texttt{scrreprt}, os títulos de capítulos e seções são repetidos no cabeçalho para impressão frente e verso — no lado externo com \KOMAScript\ no lado interno com as classes padrão. \KOMAScript\ coloca o número da página no lado externo do rodapé; as classes padrão o colocam no lado interno do cabeçalho. Na impressão de um lado, \KOMAScript\ usa apenas os títulos dos capítulos, que são centralizados no cabeçalho, e coloca os números das páginas centralizados no rodapé. A classe \texttt{scrartcl} se comporta de forma semelhante, mas começa um nível mais abaixo na hierarquia de seções, com seções e subseções, porque o nível do capítulo não existe neste caso.
 
 Enquanto as classes padrão convertem automaticamente os títulos correntes em letras maiúsculas, \KOMAScript\ usa a capitalização encontrada nos títulos. Há várias razões tipográficas para isso. Letras maiúsculas são realmente muito grandes como decoração de texto. Se você usá-las de qualquer maneira, elas devem ser definidas um ponto menor e com espaçamento um pouco mais apertado. As classes padrão não levam esses pontos em consideração.
 
@@ -30,7 +30,7 @@ Além disso, as classes \KOMAScript\ suportam regras abaixo do cabeçalho e acim
 
 \paragraph{Plain} é o estilo de página sem cabeçalho e apenas um número de página no rodapé. As classes padrão sempre centralizam esse número de página no rodapé. \KOMAScript\ coloca o número de página no lado externo do rodapé no modo frente e verso. \KOMAScript\ se comporta como as classes padrão na impressão de um lado.
 
-Você pode definir o estilo da página a qualquer momento com a ajuda do comando \verb|\pagestyle|, e essa configuração entra em vigor na próxima página que for gerada. Se você usar \verb|\pagestyle| logo antes de um comando que resulte em uma quebra de página implícita e se o novo estilo de página deve ser usado na nova página resultante, um \verb|\cleardoublepage| logo antes de \verb|\pagestyle| será útil. Mas normalmente você define o estilo da página apenas uma vez, no início do documento ou no preâmbulo.
+Você pode definir o estilo da página a qualquer momento com a ajuda do comando \verb|\pagestyle|, e essa configuração entra em vigor na próxima página que for gerada. \textbf{Se você usar} \verb|\pagestyle| \textbf{logo antes de um comando que resulte em uma quebra de página implícita e se o novo estilo de página deve ser usado na nova página resultante, um} \cmd{clear\-dou\-ble\-pa\-ge} \textbf{logo antes de} \verb|\pagestyle| \textbf{será útil}. Mas normalmente você define o estilo da página apenas uma vez, no início do documento ou no preâmbulo.
 
 Para alterar o estilo da página atual apenas, use o comando \verb|\thispagestyle|. Isso ocorre automaticamente em alguns pontos do documento. Por exemplo, o comando
 \begin{verbatim}
@@ -38,15 +38,15 @@ Para alterar o estilo da página atual apenas, use o comando \verb|\thispagestyl
 \end{verbatim}
 
 é emitido implicitamente na primeira página de um capítulo.
-Observe que quando você usa o pacote scrlayer-scrpage, alternar entre cabeçalhos automáticos e manuais não é mais realizado alterando os estilos de página, mas com instruções especiais. Você não deve usar os estilos de página \textbf{headings} e \textbf{myheadings} com este pacote.
+Observe que quando você usa o pacote \texttt{scrlayer-scrpage}, alternar entre cabeçalhos automáticos e manuais não é mais realizado alterando os estilos de página, mas com instruções especiais. Você não deve usar os estilos de página \textbf{headings} e \textbf{myheadings} com este pacote.
 
-Para alterar o estilo de fonte usado para o cabeçalho, rodapé ou número de página, use os comandos \verb|\setkomafont| e \verb|\addtokomafont| (veja a seção 3.6, página 58). O mesmo elemento, pageheadfoot, é usado para o cabeçalho e o rodapé. O elemento para o número de página dentro do cabeçalho ou rodapé é chamado pagenumber. O elemento pagefoot, que também é fornecido pelas classes \KOMAScript é usado somente se você definir um estilo de página com o pacote scrlayer-scrpage no qual o rodapé contém texto (veja capítulo 5, página 264).
+Para alterar o estilo de fonte usado para o cabeçalho, rodapé ou número de página, use os comandos \verb|\setkomafont| e \verb|\addtokomafont| (veja a seção 3.6, página 58). O mesmo elemento, \texttt{pageheadfoot}, é usado para o cabeçalho e o rodapé. O elemento para o número de página dentro do cabeçalho ou rodapé é chamado \texttt{pagenumber}. O elemento \texttt{pagefoot}, que também é fornecido pelas classes \KOMAScript\ é usado somente se você definir um estilo de página com o pacote \texttt{scrlayer-scrpage} no qual o rodapé contém texto (veja capítulo 5, página 264).
 
 Você pode encontrar as configurações padrão na tabela 3.8.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{imagens/tab3_8.png}
+    \includegraphics[width=0.9\linewidth]{imagens/tab3_8.png}
     \caption{Tabela 3.8 do Manual}
     \label{fig:tab3_8}
 \end{figure}
@@ -56,15 +56,9 @@ Você pode encontrar as configurações padrão na tabela 3.8.
         \markright{right mark}
 \end{verbatim}
 
-O estilo de página \textbf{myheadings} não define o cabeçalho de execução. Em vez disso, você o define com a ajuda dos comandos \verb|\markboth| e \verb|\markright|. Dessa forma, a marca da esquerda normalmente será usada no cabeçalho de páginas pares e a marca da direita no cabeçalho de páginas ímpares. Com a impressão de um lado, apenas a marca da direita existe. Com o pacote scrlayer-scrpage, o comando \verb|\markleft| também está disponível.
+O estilo de página \textbf{myheadings} não define o cabeçalho de execução. Em vez disso, você o define com a ajuda dos comandos \verb|\markboth| e \verb|\markright|. Dessa forma, a marca da esquerda normalmente será usada no cabeçalho de páginas pares e a marca da direita no cabeçalho de páginas ímpares. Com a impressão de um lado, apenas a marca da direita existe. Com o pacote \texttt{scrlayer-scrpage}, o comando \verb|\markleft| também está disponível.
 
 Você pode usar esses comandos com outros estilos de página também. No entanto, quando combinados com cabeçalhos de execução automáticos, por exemplo, com o estilo de página de títulos, o efeito dos comandos dura apenas até a próxima vez que as respectivas marcas forem definidas automaticamente.
-\begin{verbatim}
-        \titlepagestyle
-        \partpagestyle
-        \chapterpagestyle
-        \indexpagestyle
-\end{verbatim}
 
 \begin{figure}[ht]
     \centering
@@ -73,11 +67,11 @@ Você pode usar esses comandos com outros estilos de página também. No entanto
     \label{fig:tab3_9}
 \end{figure}
 
-Em algumas páginas, um estilo de página diferente é escolhido automaticamente com a ajuda do comando \verb|\thispagestyle|. Qual estilo de página realmente é, é definido por essas quatro macros, das quais \verb|\partpagestyle| e \verb|\chapterpagestyle| são encontradas apenas com as classes scrbook e scrreprt, e não em scrartcl. O valor padrão para todos os quatro casos é \textbf{plain}. Você pode encontrar o significado dessas macros  na tabela 3.9. Você pode redefinir os estilos de página com a macro \verb|\renewcommand|.
+Em algumas páginas, um estilo de página diferente é escolhido automaticamente com a ajuda do comando \verb|\thispagestyle|. Qual estilo de página realmente é, é definido por essas quatro macros, das quais \verb|\partpagestyle| e \verb|\chapterpagestyle| são encontradas apenas com as classes \texttt{scrbook} e \texttt{scrreprt}, e não em \texttt{scrartcl}. O valor padrão para todos os quatro casos é \textbf{plain}. Você pode encontrar o significado dessas macros  na tabela 3.9. Você pode redefinir os estilos de página com a macro \verb|\renewcommand|.
 
 \textbf{Exemplo}: Suponha que você não queira que as páginas com um título \verb|\part| sejam numeradas. Você pode usar o seguinte comando no preâmbulo do seu documento:
 \begin{verbatim}
-    \renewcommand*{\partpagestyle}{empty}
+        \renewcommand*{\partpagestyle}{empty}
 \end{verbatim}
 
 Conforme mencionado anteriormente na página 80, o estilo de página vazio é exatamente o que é necessário neste exemplo. Claro, você também pode usar um estilo de página definido pelo usuário.
@@ -124,11 +118,11 @@ Infelizmente, esta solução não é muito melhor. Aqui, há uma quebra de pági
 
 Além disso, \verb|\newpage| ou \char`\\\texttt{clear\-pa\-ge} não seriam suficientes para um documento frente e verso. Por exemplo, se a última página do índice tivesse o numeral romano $vii$, a página direita numerada arábica 1 seguiria imediatamente a página direita numerada romana. Uma página esquerda entre as duas estaria faltando, o que poderia causar sérios problemas com a impressão posterior.
 
-Meu conselho: Evite usar modelos que contenham erros com relação a coisas tão simples. Aliás, a maneira correta seria:
-\begin{verbatim}
+Meu conselho: Evite usar modelos que contenham erros com relação a coisas tão simples. Aliás, a \textbf{maneira correta seria}:
+\begin{verbnobox}[\hspace{1.5in}]
     \tableofcontents
     \cleardoubleoddpage
     \pagenumbering{arabic}
-\end{verbatim}
+\end{verbnobox}
 
 Isso também se aplica se \textbf{scrartcl} usa uma classe que normalmente não inicia uma nova página após o índice. Se você alternar a numeração de páginas, uma nova página à direita deve ser iniciada. Se você não quiser tal alteração, você deve manter o estilo de numeração das páginas consistente em todo o documento sem alterá-lo entre elas. É mais fácil alterar o estilo de numeração ao usar \textbf{scrbook}. Lá você tem o suporte de dois comandos, \char`\\\texttt{front\-matter} e \char`\\\texttt{main\-matter}, para a alternância mais comumente usada. Para mais informações, consulte a seção 3.15, página 94.
